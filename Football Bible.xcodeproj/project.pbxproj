@@ -12,9 +12,13 @@
 		837D18031DF8C85A00F1DFB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837D18011DF8C85A00F1DFB7 /* Main.storyboard */; };
 		837D18051DF8C85A00F1DFB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837D18041DF8C85A00F1DFB7 /* Assets.xcassets */; };
 		837D18081DF8C85A00F1DFB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837D18061DF8C85A00F1DFB7 /* LaunchScreen.storyboard */; };
+		837D18101DF8C99900F1DFB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 837D180F1DF8C99900F1DFB7 /* GoogleService-Info.plist */; };
+		9602439629CBA1BDED6F7D54 /* Pods_Football_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AAE314A4847922CC1AD802 /* Pods_Football_Bible.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27AAE314A4847922CC1AD802 /* Pods_Football_Bible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Football_Bible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72336F8722EB5BCF84EFC3F2 /* Pods-Football Bible.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Football Bible.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Football Bible/Pods-Football Bible.debug.xcconfig"; sourceTree = "<group>"; };
 		837D17FA1DF8C85A00F1DFB7 /* Football Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Football Bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		837D17FD1DF8C85A00F1DFB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837D17FF1DF8C85A00F1DFB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		837D18041DF8C85A00F1DFB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		837D18071DF8C85A00F1DFB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		837D18091DF8C85A00F1DFB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		837D180F1DF8C99900F1DFB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A8D9E36A6C0EFED9E2FC6B5A /* Pods-Football Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Football Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Football Bible/Pods-Football Bible.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9602439629CBA1BDED6F7D54 /* Pods_Football_Bible.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				837D17FC1DF8C85A00F1DFB7 /* Football Bible */,
 				837D17FB1DF8C85A00F1DFB7 /* Products */,
+				A4186386577389EACE5977EA /* Pods */,
+				E4458DD84C882E354C544D7C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +63,7 @@
 		837D17FC1DF8C85A00F1DFB7 /* Football Bible */ = {
 			isa = PBXGroup;
 			children = (
+				837D180F1DF8C99900F1DFB7 /* GoogleService-Info.plist */,
 				837D17FD1DF8C85A00F1DFB7 /* AppDelegate.swift */,
 				837D17FF1DF8C85A00F1DFB7 /* ViewController.swift */,
 				837D18011DF8C85A00F1DFB7 /* Main.storyboard */,
@@ -64,6 +74,23 @@
 			path = "Football Bible";
 			sourceTree = "<group>";
 		};
+		A4186386577389EACE5977EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72336F8722EB5BCF84EFC3F2 /* Pods-Football Bible.debug.xcconfig */,
+				A8D9E36A6C0EFED9E2FC6B5A /* Pods-Football Bible.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E4458DD84C882E354C544D7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27AAE314A4847922CC1AD802 /* Pods_Football_Bible.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 837D180C1DF8C85A00F1DFB7 /* Build configuration list for PBXNativeTarget "Football Bible" */;
 			buildPhases = (
+				12D5235E31EB8679B081671B /* 📦 Check Pods Manifest.lock */,
 				837D17F61DF8C85A00F1DFB7 /* Sources */,
 				837D17F71DF8C85A00F1DFB7 /* Frameworks */,
 				837D17F81DF8C85A00F1DFB7 /* Resources */,
+				81AA4A4418D4AA971F1D51F9 /* 📦 Embed Pods Frameworks */,
+				6D239A0C99EF44625EA0C5D4 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -97,6 +127,7 @@
 					837D17F91DF8C85A00F1DFB7 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = C4Q2FUWZY3;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -125,12 +156,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				837D18081DF8C85A00F1DFB7 /* LaunchScreen.storyboard in Resources */,
+				837D18101DF8C99900F1DFB7 /* GoogleService-Info.plist in Resources */,
 				837D18051DF8C85A00F1DFB7 /* Assets.xcassets in Resources */,
 				837D18031DF8C85A00F1DFB7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12D5235E31EB8679B081671B /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6D239A0C99EF44625EA0C5D4 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Football Bible/Pods-Football Bible-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81AA4A4418D4AA971F1D51F9 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Football Bible/Pods-Football Bible-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		837D17F61DF8C85A00F1DFB7 /* Sources */ = {
@@ -259,6 +339,7 @@
 		};
 		837D180D1DF8C85A00F1DFB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72336F8722EB5BCF84EFC3F2 /* Pods-Football Bible.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C4Q2FUWZY3;
@@ -272,6 +353,7 @@
 		};
 		837D180E1DF8C85A00F1DFB7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8D9E36A6C0EFED9E2FC6B5A /* Pods-Football Bible.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C4Q2FUWZY3;
@@ -302,6 +384,7 @@
 				837D180E1DF8C85A00F1DFB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
