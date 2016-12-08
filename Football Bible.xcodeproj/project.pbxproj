@@ -13,6 +13,7 @@
 		837D18051DF8C85A00F1DFB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837D18041DF8C85A00F1DFB7 /* Assets.xcassets */; };
 		837D18081DF8C85A00F1DFB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837D18061DF8C85A00F1DFB7 /* LaunchScreen.storyboard */; };
 		837D18101DF8C99900F1DFB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 837D180F1DF8C99900F1DFB7 /* GoogleService-Info.plist */; };
+		83A4AAB91DFA27930059779A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4AAB81DFA27930059779A /* LoginViewController.swift */; };
 		9602439629CBA1BDED6F7D54 /* Pods_Football_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AAE314A4847922CC1AD802 /* Pods_Football_Bible.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		837D18071DF8C85A00F1DFB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		837D18091DF8C85A00F1DFB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		837D180F1DF8C99900F1DFB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		83A4AAB81DFA27930059779A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A8D9E36A6C0EFED9E2FC6B5A /* Pods-Football Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Football Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Football Bible/Pods-Football Bible.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 				837D18041DF8C85A00F1DFB7 /* Assets.xcassets */,
 				837D18061DF8C85A00F1DFB7 /* LaunchScreen.storyboard */,
 				837D18091DF8C85A00F1DFB7 /* Info.plist */,
+				83A4AAB81DFA27930059779A /* LoginViewController.swift */,
 			);
 			path = "Football Bible";
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A4AAB91DFA27930059779A /* LoginViewController.swift in Sources */,
 				837D18001DF8C85A00F1DFB7 /* ViewController.swift in Sources */,
 				837D17FE1DF8C85A00F1DFB7 /* AppDelegate.swift in Sources */,
 			);
