@@ -50,7 +50,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pFm-Z2-ATK">
-                                        <rect key="frame" x="0.0" y="164" width="375" height="90"/>
+                                        <rect key="frame" x="0.0" y="164" width="375" height="120"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3PI-KQ-2Cn">
                                                 <rect key="frame" x="100" y="0.0" width="175" height="30"/>
@@ -68,6 +68,12 @@
                                                 <rect key="frame" x="166.5" y="60" width="42" height="30"/>
                                                 <state key="normal" title="Log In">
                                                     <color key="titleColor" red="0.9971032366" green="1" blue="0.99673825039999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkD-n9-ykE">
+                                                <rect key="frame" x="128.5" y="90" width="118" height="30"/>
+                                                <state key="normal" title="Register Account">
+                                                    <color key="titleColor" red="0.99989098310470581" green="0.75933739957788504" blue="0.17794283442302058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
                                         </subviews>
