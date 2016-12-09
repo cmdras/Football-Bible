@@ -11,10 +11,16 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var teamTable: UITableView!
     
-    let footballTeams = [String]()
+    var footballTeams = [String]()
+    var teamDicts = [String: Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
+        for team in teamDicts.keys {
+            footballTeams.append(team)
+            teamTable.reloadData()
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -34,6 +40,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.teamName.text = footballTeams[indexPath.row]
         return cell
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let segueVC = segue.destination as? AddTeamViewController {
+            segueVC.teamDicts = self.teamDicts
+        }
+        
+        else if let segueVC = segue.destination as? TeamInfoViewController {
+            segueVC.teamDicts = self.teamDicts
+        }
     }
 
 

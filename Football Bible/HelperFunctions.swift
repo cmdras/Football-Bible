@@ -7,24 +7,10 @@
 //
 
 import Foundation
-import Alamofire
 import SwiftyJSON
 
-/*
-    AlamoFire framework: https://github.com/Alamofire/Alamofire
-    SwiftlyJSON framework: https://github.com/SwiftyJSON/SwiftyJSON
-*/
 
-
-// HTTP Header code adapted from: https://grokswift.com/custom-headers-alamofire4-swift3/
-public typealias HTTPHeaders = [String: String]
-let headers: HTTPHeaders = [
-    "X-Auth-Token": "46713f7c92534e12900421e14dabd324",
-    "X-Response-Control": "minified"
-]
-
-
-/// Searches the football-data.org API for all available competitions.
+/// Parses the JSON to return a dictionary with League names and League ID's
 func getLeagues(json: JSON) -> [String: Int] {
     var leagues = [String: Int]()
     for index in 0..<json.count {
@@ -32,4 +18,12 @@ func getLeagues(json: JSON) -> [String: Int] {
     }
     return leagues
     
+}
+
+func getTeams(json:JSON) -> [String: Int] {
+    var teams = [String: Int]()
+    for index in 0..<json["teams"].count {
+        teams[json["teams"][index]["name"].rawString()!] = Int(json["teams"][index]["id"].rawString()!)!
+    }
+    return teams
 }

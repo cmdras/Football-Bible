@@ -10,9 +10,25 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
+/*
+ AlamoFire framework: https://github.com/Alamofire/Alamofire
+ SwiftlyJSON framework: https://github.com/SwiftyJSON/SwiftyJSON
+ */
+
+
+
 class AddTeamViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var leagueTableView: UITableView!
     
+    // HTTP Header code adapted from: https://grokswift.com/custom-headers-alamofire4-swift3/
+    public typealias HTTPHeaders = [String: String]
+    let headers: HTTPHeaders = [
+        "X-Auth-Token": "46713f7c92534e12900421e14dabd324",
+        "X-Response-Control": "minified"
+    ]
+    
+    var teamDicts = [String: Int]()
     var leagues = [String]()
     var leagueDicts = [String: Int]()
     var leagueId = Int()
@@ -33,12 +49,10 @@ class AddTeamViewController: UIViewController, UITableViewDataSource, UITableVie
                     self.leagueTableView.reloadData()
                 }
         }
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,6 +76,7 @@ class AddTeamViewController: UIViewController, UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let aTVC2Segue = segue.destination as? addTeamViewController2 {
             aTVC2Segue.leagueId = self.leagueId
+            aTVC2Segue.teamDicts = self.teamDicts
         }
     }
 

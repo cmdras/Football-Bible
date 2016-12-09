@@ -15,6 +15,8 @@ class TeamInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var matchDate: UILabel!
     @IBOutlet weak var playerTableView: UITableView!
     
+    var teamDicts = [String: Int]()
+    
     let players = ["El Ghazi", "Ziyech", "Nouri", "Onana", "Cerny", "Boer", "Klaassen"]
     
 

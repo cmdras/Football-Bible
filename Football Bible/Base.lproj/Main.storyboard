@@ -82,7 +82,7 @@
                     <navigationItem key="navigationItem" title="My Teams" id="L6v-a4-iKD">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zRm-ie-MiX">
                             <connections>
-                                <segue destination="0gx-gY-5nN" kind="presentation" id="ZoW-h5-NOh"/>
+                                <segue destination="0gx-gY-5nN" kind="show" id="ZoW-h5-NOh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -376,7 +376,6 @@
                                         <color key="backgroundColor" red="0.45921581389999999" green="0.4061773937" blue="0.59909326419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="teamName" destination="Lwc-sm-yWQ" id="g90-Fx-Wmc"/>
-                                            <segue destination="c1P-2T-TYK" kind="presentation" id="1ru-2H-LTW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -399,6 +398,7 @@
                     </view>
                     <connections>
                         <outlet property="teamsTable" destination="5sW-Ad-O4Q" id="cqv-K0-j4v"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="addTeam" id="Yph-eI-WuL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hOF-t6-RHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -505,10 +505,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VII-DK-BRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="116"/>
+            <point key="canvasLocation" x="962" y="140"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1ru-2H-LTW"/>
+        <segue reference="M6g-OJ-orX"/>
     </inferredMetricsTieBreakers>
 </document>
