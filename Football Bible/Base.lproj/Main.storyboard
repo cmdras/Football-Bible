@@ -291,7 +291,6 @@
                                         <color key="backgroundColor" red="0.45921581389999999" green="0.4061773937" blue="0.59909326419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="leagueName" destination="FLx-OC-1Do" id="HgJ-TH-82I"/>
-                                            <segue destination="vqr-Wx-qza" kind="show" identifier="leagueToTeam" id="AWB-xn-AQQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -314,6 +313,7 @@
                     </view>
                     <connections>
                         <outlet property="leagueTableView" destination="Vic-LG-Khd" id="fOj-Yu-VL4"/>
+                        <segue destination="vqr-Wx-qza" kind="show" identifier="leagueToTeam" id="bDu-Ek-2jY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQk-av-Akd" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,14 +7,32 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class AddTeamViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var leagueTableView: UITableView!
     
-    let leagues = ["Serie-A", "Eredivisie"]
+    var leagues = [String]()
+    var leagueDicts = [String: Int]()
+    var leagueId = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Alamofire.request("https://api.football-data.org/v1/competitions/?season=2016", headers: headers)
+            .responseJSON { (responseData) -> Void in
+                
+                if((responseData.result.value) != nil) {
+                    let json = JSON(responseData.result.value!)
+                    self.leagueDicts = getLeagues(json: json)
+                    
+        
+                    for league in self.leagueDicts.keys {
+                        self.leagues.append(league)
+                    }
+        
+                    self.leagueTableView.reloadData()
+                }
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -33,6 +51,18 @@ class AddTeamViewController: UIViewController, UITableViewDataSource, UITableVie
         
         cell.leagueName.text = leagues[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.leagueId = self.leagueDicts[self.leagues[indexPath.row]]!
+        performSegue(withIdentifier: "leagueToTeam", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let aTVC2Segue = segue.destination as? addTeamViewController2 {
+            aTVC2Segue.leagueId = self.leagueId
+        }
     }
 
     

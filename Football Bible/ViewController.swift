@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var teamTable: UITableView!
     
-    let footballTeams = ["Ajax Amsterdam", "Man Utd", "Barcelona" ]
+    let footballTeams = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

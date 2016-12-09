@@ -10,10 +10,10 @@ import UIKit
 
 class addTeamViewController2: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var teamsTable: UITableView!
-    let leagueTeams = ["Ajax", "PSV", "Feyenoord"]
+    var leagueId = Int()
+    var leagueTeams = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
