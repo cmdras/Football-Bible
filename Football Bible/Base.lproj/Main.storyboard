@@ -6,10 +6,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--My Teams-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Football_Bible" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,13 +21,72 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpE-jq-i1A">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tcL-GR-yGm">
+                                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamCell" id="pCH-65-y3f" customClass="teamCell" customModule="Football_Bible" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="45"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pCH-65-y3f" id="wD3-jL-6Oa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqa-ci-yTH">
+                                                            <rect key="frame" x="8" y="12" width="359" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Sqa-ci-yTH" firstAttribute="leading" secondItem="wD3-jL-6Oa" secondAttribute="leadingMargin" id="BhK-NC-8Dj"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="Sqa-ci-yTH" secondAttribute="trailing" id="gwd-YZ-Ipg"/>
+                                                        <constraint firstItem="Sqa-ci-yTH" firstAttribute="centerY" secondItem="wD3-jL-6Oa" secondAttribute="centerY" id="hkW-ms-pGF"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="teamName" destination="Sqa-ci-yTH" id="kym-k3-1te"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="7uP-3a-r7F"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="GRO-Yx-2rk"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.45921581389999999" green="0.4061773937" blue="0.59909326419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tcL-GR-yGm" secondAttribute="trailing" id="1Zi-f6-JE2"/>
+                                    <constraint firstAttribute="bottom" secondItem="tcL-GR-yGm" secondAttribute="bottom" id="2fW-b1-9ps"/>
+                                    <constraint firstItem="tcL-GR-yGm" firstAttribute="top" secondItem="fpE-jq-i1A" secondAttribute="top" constant="64" id="OCw-cm-FVb"/>
+                                    <constraint firstItem="tcL-GR-yGm" firstAttribute="leading" secondItem="fpE-jq-i1A" secondAttribute="leading" id="yE4-g5-yn3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fpE-jq-i1A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Fyl-pG-XKm"/>
+                            <constraint firstAttribute="trailing" secondItem="fpE-jq-i1A" secondAttribute="trailing" id="VLE-8W-3tz"/>
+                            <constraint firstItem="fpE-jq-i1A" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="x2A-ZX-Zz6"/>
+                            <constraint firstItem="fpE-jq-i1A" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="xuK-QF-YgW"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="L6v-a4-iKD"/>
+                    <navigationItem key="navigationItem" title="My Teams" id="L6v-a4-iKD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zRm-ie-MiX"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="teamTable" destination="tcL-GR-yGm" id="2kO-Wy-iWk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2009" y="116"/>
+            <point key="canvasLocation" x="1757.5999999999999" y="115.59220389805098"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="FOL-1N-kzs">
@@ -67,13 +127,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Li-Or-BjM">
                                                 <rect key="frame" x="166.5" y="60" width="42" height="30"/>
                                                 <state key="normal" title="Log In">
-                                                    <color key="titleColor" red="0.9971032366" green="1" blue="0.99673825039999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.99989098310000002" green="0.75933739960000002" blue="0.1779428344" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="c1P-2T-TYK" kind="presentation" id="OMz-cz-nsa"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkD-n9-ykE">
                                                 <rect key="frame" x="128.5" y="90" width="118" height="30"/>
                                                 <state key="normal" title="Register Account">
-                                                    <color key="titleColor" red="0.99989098310470581" green="0.75933739957788504" blue="0.17794283442302058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="1" green="0.52610881109999996" blue="0.55597203319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
                                         </subviews>
@@ -125,7 +188,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VII-DK-BRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="116"/>
+            <point key="canvasLocation" x="945" y="116"/>
         </scene>
     </scenes>
 </document>
