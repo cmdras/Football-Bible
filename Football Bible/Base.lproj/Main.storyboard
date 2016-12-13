@@ -52,7 +52,6 @@
                                                 <color key="backgroundColor" red="0.45921581389999999" green="0.4061773937" blue="0.59909326419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <outlet property="teamName" destination="Sqa-ci-yTH" id="kym-k3-1te"/>
-                                                    <segue destination="cgU-K1-WQg" kind="show" id="egl-B4-rNt"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -88,6 +87,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="teamTable" destination="tcL-GR-yGm" id="2kO-Wy-iWk"/>
+                        <segue destination="cgU-K1-WQg" kind="show" identifier="teamInfo" id="nuB-5y-hgP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -132,22 +132,34 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="334" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u08-CD-g2R">
-                                                                    <rect key="frame" x="8" y="11" width="318" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuA-T7-HIE">
+                                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" red="0.9971032366" green="1" blue="0.99673825039999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ze7-uL-Gpo">
+                                                                    <rect key="frame" x="58" y="11" width="268" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.9971032366" green="1" blue="0.99673825039999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="u08-CD-g2R" secondAttribute="trailing" id="8cS-Dk-IW3"/>
-                                                                <constraint firstItem="u08-CD-g2R" firstAttribute="top" secondItem="lEY-X8-gkI" secondAttribute="topMargin" constant="3" id="KGq-0D-TG4"/>
-                                                                <constraint firstItem="u08-CD-g2R" firstAttribute="leading" secondItem="lEY-X8-gkI" secondAttribute="leadingMargin" id="qGM-Ay-YtW"/>
+                                                                <constraint firstItem="PuA-T7-HIE" firstAttribute="top" secondItem="lEY-X8-gkI" secondAttribute="topMargin" constant="3" id="4C5-Lr-aJb"/>
+                                                                <constraint firstItem="Ze7-uL-Gpo" firstAttribute="leading" secondItem="PuA-T7-HIE" secondAttribute="trailing" constant="8" id="6Te-PN-lnX"/>
+                                                                <constraint firstAttribute="bottomMargin" secondItem="Ze7-uL-Gpo" secondAttribute="bottom" constant="3" id="BBb-VD-Td0"/>
+                                                                <constraint firstItem="Ze7-uL-Gpo" firstAttribute="top" secondItem="lEY-X8-gkI" secondAttribute="topMargin" constant="3" id="BZJ-ZD-Pwj"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="PuA-T7-HIE" secondAttribute="trailing" constant="276" id="VuN-Yg-14W"/>
+                                                                <constraint firstItem="PuA-T7-HIE" firstAttribute="leading" secondItem="lEY-X8-gkI" secondAttribute="leadingMargin" id="dvd-kK-vMk"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="Ze7-uL-Gpo" secondAttribute="trailing" id="mVr-kp-Qzq"/>
+                                                                <constraint firstAttribute="bottomMargin" secondItem="PuA-T7-HIE" secondAttribute="bottom" constant="3" id="ycW-1B-71G"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" red="0.45921581389999999" green="0.4061773937" blue="0.59909326419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
-                                                            <outlet property="playerName" destination="u08-CD-g2R" id="rVt-Lc-7ko"/>
+                                                            <outlet property="playerName" destination="Ze7-uL-Gpo" id="UfV-RA-60S"/>
+                                                            <outlet property="playerNumber" destination="PuA-T7-HIE" id="cYd-vO-FnX"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -156,19 +168,11 @@
                                                     <outlet property="delegate" destination="cgU-K1-WQg" id="5ja-wI-EWL"/>
                                                 </connections>
                                             </tableView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkv-oC-Jem">
-                                                <rect key="frame" x="166.5" y="276" width="42" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.9971032366" green="1" blue="0.99673825039999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.45921581389999999" green="0.4061773937" blue="0.59909326419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="gkv-oC-Jem" firstAttribute="top" secondItem="XaO-ap-R4N" secondAttribute="bottom" constant="8" symbolic="YES" id="2xO-D7-o27"/>
                                             <constraint firstItem="ZjN-mW-rRj" firstAttribute="top" secondItem="zxf-c0-QOj" secondAttribute="topMargin" id="M9r-9f-Mgx"/>
                                             <constraint firstItem="ZjN-mW-rRj" firstAttribute="leading" secondItem="zxf-c0-QOj" secondAttribute="leading" constant="-8" id="N2W-vA-Xfd"/>
-                                            <constraint firstItem="XaO-ap-R4N" firstAttribute="centerX" secondItem="gkv-oC-Jem" secondAttribute="centerX" id="OsV-95-xdy"/>
                                             <constraint firstItem="XaO-ap-R4N" firstAttribute="leading" secondItem="zxf-c0-QOj" secondAttribute="leading" constant="20" id="UB1-O4-KaU"/>
                                             <constraint firstItem="XaO-ap-R4N" firstAttribute="top" secondItem="ZjN-mW-rRj" secondAttribute="bottom" constant="4" id="XqS-lT-Hm1"/>
                                             <constraint firstItem="XaO-ap-R4N" firstAttribute="centerY" secondItem="zxf-c0-QOj" secondAttribute="centerY" id="aB5-6l-tJn"/>
@@ -227,8 +231,7 @@
                         <outlet property="matchDate" destination="a8O-Br-J3t" id="4TW-90-SIa"/>
                         <outlet property="matchup" destination="sRe-B0-WcQ" id="XO5-6q-rSW"/>
                         <outlet property="playerTableView" destination="XaO-ap-R4N" id="GV6-2J-tzK"/>
-                        <outlet property="squadValue" destination="gkv-oC-Jem" id="ZFs-PC-V02"/>
-                        <outlet property="teamName" destination="ZjN-mW-rRj" id="egp-qP-lax"/>
+                        <outlet property="teamName" destination="ZjN-mW-rRj" id="UDv-NZ-E69"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZR-N1-HaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -248,7 +251,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GUG-6r-jPv">
-                                <rect key="frame" x="16" y="28" width="343" height="57.5"/>
+                                <rect key="frame" x="16" y="72" width="343" height="57.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3r-p1-KlV">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="33.5"/>
@@ -265,7 +268,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vic-LG-Khd">
-                                <rect key="frame" x="0.0" y="93" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="137" width="375" height="530"/>
                                 <color key="backgroundColor" red="0.45921581389999999" green="0.4061773937" blue="0.59909326419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="leagueCell" id="x2c-pY-YdT" customClass="leagueNameCell" customModule="Football_Bible" customModuleProvider="target">
@@ -333,7 +336,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Th-F1-TO2">
-                                <rect key="frame" x="16" y="28" width="343" height="57.5"/>
+                                <rect key="frame" x="16" y="72" width="343" height="57.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xug-kj-G2v">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="33.5"/>
@@ -350,7 +353,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5sW-Ad-O4Q">
-                                <rect key="frame" x="0.0" y="93" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="137" width="375" height="530"/>
                                 <color key="backgroundColor" red="0.45921581389999999" green="0.4061773937" blue="0.59909326419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addTeamCell" id="i4X-f0-aVt" customClass="addTeamCell" customModule="Football_Bible" customModuleProvider="target">
@@ -447,7 +450,7 @@
                                                     <color key="titleColor" red="0.99989098310000002" green="0.75933739960000002" blue="0.1779428344" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="c1P-2T-TYK" kind="presentation" id="OMz-cz-nsa"/>
+                                                    <action selector="loginAction:" destination="3L6-eM-KYL" eventType="touchUpInside" id="mCM-Kh-xDv"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkD-n9-ykE">
@@ -455,6 +458,9 @@
                                                 <state key="normal" title="Register Account">
                                                     <color key="titleColor" red="1" green="0.52610881109999996" blue="0.55597203319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="createAccountAction:" destination="3L6-eM-KYL" eventType="touchUpInside" id="12m-eZ-RLb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -484,6 +490,10 @@
                             <constraint firstItem="Zgj-X1-Zxg" firstAttribute="leading" secondItem="hbf-or-6qP" secondAttribute="leading" id="oYb-Bk-RFF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailText" destination="3PI-KQ-2Cn" id="6II-lc-jUN"/>
+                        <outlet property="passwordText" destination="JXB-85-0vo" id="UQa-VK-ftt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U87-ei-FHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

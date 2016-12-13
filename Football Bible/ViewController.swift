@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var footballTeams = [String]()
     var teamDicts = [String: Int]()
+    var chosenTeam = [String: Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +43,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.chosenTeam[footballTeams[indexPath.row]] = self.teamDicts[footballTeams[indexPath.row]]
+        performSegue(withIdentifier: "teamInfo", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let segueVC = segue.destination as? AddTeamViewController {
             segueVC.teamDicts = self.teamDicts
         }
         
         else if let segueVC = segue.destination as? TeamInfoViewController {
-            segueVC.teamDicts = self.teamDicts
+            segueVC.teamDict = self.chosenTeam
         }
     }
 

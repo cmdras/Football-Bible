@@ -9,6 +9,7 @@
 import UIKit
 
 class playerCell: UITableViewCell {
+    @IBOutlet weak var playerNumber: UILabel!
     @IBOutlet weak var playerName: UILabel!
 
     override func awakeFromNib() {

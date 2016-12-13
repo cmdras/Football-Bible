@@ -7,6 +7,8 @@ target 'Football Bible' do
 
   # Pods for Football Bible
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
   pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire'
   pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 
