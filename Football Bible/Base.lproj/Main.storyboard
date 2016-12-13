@@ -493,6 +493,7 @@
                     <connections>
                         <outlet property="emailText" destination="3PI-KQ-2Cn" id="6II-lc-jUN"/>
                         <outlet property="passwordText" destination="JXB-85-0vo" id="UQa-VK-ftt"/>
+                        <segue destination="c1P-2T-TYK" kind="show" identifier="loginSegue" id="DkP-db-eIq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U87-ei-FHP" userLabel="First Responder" sceneMemberID="firstResponder"/>

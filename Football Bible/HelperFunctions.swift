@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-
+/// A Football match Class
 class FootballMatch {
     var homeTeam = String()
     var awayTeam = String()
@@ -26,6 +26,7 @@ func getLeagues(json: JSON) -> [String: Int] {
     
 }
 
+/// Parses the JSON to return a dictionary with team names and team ID's
 func getTeams(json:JSON) -> [String: Int] {
     var teams = [String: Int]()
     for index in 0..<json["teams"].count {
@@ -34,14 +35,18 @@ func getTeams(json:JSON) -> [String: Int] {
     return teams
 }
 
+/// Parses the JSON to return a dictionary with player names and player ID's
 func getPlayers(json:JSON) -> [String: Int] {
     var players = [String: Int]()
-    for index in 0..<json["players"].count {
-        players[json["players"][index]["name"].rawString()!] = Int(json["players"][index]["jerseyNumber"].rawString()!)!
+    if json["players"].count > 0 {
+        for index in 0..<json["players"].count {
+            players[json["players"][index]["name"].rawString()!] = Int(json["players"][index]["jerseyNumber"].rawString()!)!
+        }
     }
     return players
 }
 
+/// Parses the JSON to return a FootballMatch Object with details
 func getMatch(json:JSON) -> FootballMatch {
     let match = FootballMatch()
     if json["fixtures"].count > 0 {
@@ -55,6 +60,7 @@ func getMatch(json:JSON) -> FootballMatch {
 
 }
 
+/// Parses the JSON to return a string containing the date and time of a match
 func dateTimeParsing(dateTime:String) -> String {
     let dateTimeArray = dateTime.components(separatedBy: "T")
     let parsedString = "\(dateTimeArray[0]) @ \(dateTimeArray[1])"
