@@ -15,12 +15,12 @@
 		835926DF1DFA6291007F533F /* TeamInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835926DE1DFA6291007F533F /* TeamInfoViewController.swift */; };
 		835926E11DFA6B98007F533F /* playerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835926E01DFA6B98007F533F /* playerCell.swift */; };
 		835926E31DFA6FAA007F533F /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835926E21DFA6FAA007F533F /* HelperFunctions.swift */; };
+		83773FA31E004C0900390EEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83773FA21E004C0900390EEA /* GoogleService-Info.plist */; };
 		837D17FE1DF8C85A00F1DFB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837D17FD1DF8C85A00F1DFB7 /* AppDelegate.swift */; };
 		837D18001DF8C85A00F1DFB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837D17FF1DF8C85A00F1DFB7 /* ViewController.swift */; };
 		837D18031DF8C85A00F1DFB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837D18011DF8C85A00F1DFB7 /* Main.storyboard */; };
 		837D18051DF8C85A00F1DFB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837D18041DF8C85A00F1DFB7 /* Assets.xcassets */; };
 		837D18081DF8C85A00F1DFB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837D18061DF8C85A00F1DFB7 /* LaunchScreen.storyboard */; };
-		837D18101DF8C99900F1DFB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 837D180F1DF8C99900F1DFB7 /* GoogleService-Info.plist */; };
 		83A4AAB91DFA27930059779A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4AAB81DFA27930059779A /* LoginViewController.swift */; };
 		9602439629CBA1BDED6F7D54 /* Pods_Football_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AAE314A4847922CC1AD802 /* Pods_Football_Bible.framework */; };
 /* End PBXBuildFile section */
@@ -37,6 +37,7 @@
 		835926E01DFA6B98007F533F /* playerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playerCell.swift; sourceTree = "<group>"; };
 		835926E21DFA6FAA007F533F /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		835926E41DFAB0E7007F533F /* Football Bible.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Football Bible.entitlements"; sourceTree = "<group>"; };
+		83773FA21E004C0900390EEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		837D17FA1DF8C85A00F1DFB7 /* Football Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Football Bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		837D17FD1DF8C85A00F1DFB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837D17FF1DF8C85A00F1DFB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +45,6 @@
 		837D18041DF8C85A00F1DFB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		837D18071DF8C85A00F1DFB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		837D18091DF8C85A00F1DFB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		837D180F1DF8C99900F1DFB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83A4AAB81DFA27930059779A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A8D9E36A6C0EFED9E2FC6B5A /* Pods-Football Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Football Bible.release.xcconfig"; path = "Pods/Target Support Files/Pods-Football Bible/Pods-Football Bible.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				835926E41DFAB0E7007F533F /* Football Bible.entitlements */,
-				837D180F1DF8C99900F1DFB7 /* GoogleService-Info.plist */,
+				83773FA21E004C0900390EEA /* GoogleService-Info.plist */,
 				837D17FD1DF8C85A00F1DFB7 /* AppDelegate.swift */,
 				837D17FF1DF8C85A00F1DFB7 /* ViewController.swift */,
 				837D18011DF8C85A00F1DFB7 /* Main.storyboard */,
@@ -190,7 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				837D18081DF8C85A00F1DFB7 /* LaunchScreen.storyboard in Resources */,
-				837D18101DF8C99900F1DFB7 /* GoogleService-Info.plist in Resources */,
+				83773FA31E004C0900390EEA /* GoogleService-Info.plist in Resources */,
 				837D18051DF8C85A00F1DFB7 /* Assets.xcassets in Resources */,
 				837D18031DF8C85A00F1DFB7 /* Main.storyboard in Resources */,
 			);
