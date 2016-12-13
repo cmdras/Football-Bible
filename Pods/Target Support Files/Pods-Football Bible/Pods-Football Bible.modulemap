@@ -1,0 +1,6 @@
+framework module Pods_Football_Bible {
+  umbrella header "Pods-Football Bible-umbrella.h"
+
+  export *
+  module * { export * }
+}
