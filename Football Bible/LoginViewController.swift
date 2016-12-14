@@ -20,6 +20,14 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+            if user != nil {
+                self.userID = user!.uid
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
+        }
+        
         self.passwordText.isSecureTextEntry = true
         ref = FIRDatabase.database().reference()
 

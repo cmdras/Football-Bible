@@ -35,16 +35,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         })
         self.navigationItem.hidesBackButton = true
-        
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+        try! FIRAuth.auth()!.signOut()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return footballTeams.count
