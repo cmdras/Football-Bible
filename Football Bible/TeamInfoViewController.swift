@@ -77,4 +77,5 @@ class TeamInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.playerNumber.text = String(numbers[indexPath.row])
         return cell
     }
+    
 }

@@ -9,13 +9,19 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 class LoginViewController: UIViewController {
+    
+    var ref: FIRDatabaseReference!
+    var userID: String?
+    
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.passwordText.isSecureTextEntry = true
+        ref = FIRDatabase.database().reference()
 
     }
 
@@ -33,7 +39,8 @@ class LoginViewController: UIViewController {
         } else {
             FIRAuth.auth()?.createUser(withEmail: self.emailText.text!, password: self.passwordText.text!, completion: { (user, error) in
                 if error == nil {
-                    print("\(user!.email)")
+                    self.userID = user!.uid
+                    self.ref.child("users").child(user!.uid).setValue(["Email": user!.email])
                     self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 } else {
                     let alertController = UIAlertController(title: "Oops", message: error?.localizedDescription, preferredStyle: .alert)
@@ -56,7 +63,7 @@ class LoginViewController: UIViewController {
         } else {
             FIRAuth.auth()?.signIn(withEmail: self.emailText.text!, password: self.passwordText.text!, completion: { (user, error) in
                 if error == nil {
-                    print("\(user!.email)")
+                    self.userID = user!.uid
                     self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 } else {
                     let alertController = UIAlertController(title: "Oops", message: error?.localizedDescription, preferredStyle: .alert)
@@ -65,6 +72,15 @@ class LoginViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
                 }
             })
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navVC = segue.destination as? UINavigationController {
+            if let loginVC = navVC.topViewController as? ViewController {
+                loginVC.userID = self.userID!
+            }
+            
         }
     }
     

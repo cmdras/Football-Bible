@@ -7,21 +7,37 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseDatabase
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var teamTable: UITableView!
     
+    var userID: String?
     var footballTeams = [String]()
     var teamDicts = [String: Int]()
     var chosenTeam = [String: Int]()
+    var ref: FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        chosenTeam = [:]
+        ref = FIRDatabase.database().reference(withPath: "users")
+        ref.child(userID!).observe(.value, with: { snapshot in
+            var newItems: [String: Int] = [:]
+            let items = snapshot.value as? [String: AnyObject]
+            if items!["Teams"] != nil {
+                self.teamDicts = items!["Teams"]! as! [String : Int]
+                for team in self.teamDicts.keys {
+                    self.footballTeams.append(team)
+                    self.teamTable.reloadData()
+                }
+            }
+        })
         self.navigationItem.hidesBackButton = true
-        for team in teamDicts.keys {
-            footballTeams.append(team)
-            teamTable.reloadData()
-        }
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -44,17 +60,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.chosenTeam = [:]
         self.chosenTeam[footballTeams[indexPath.row]] = self.teamDicts[footballTeams[indexPath.row]]
+        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "teamInfo", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let segueVC = segue.destination as? AddTeamViewController {
             segueVC.teamDicts = self.teamDicts
+            segueVC.userID = self.userID
         }
         
         else if let segueVC = segue.destination as? TeamInfoViewController {
             segueVC.teamDict = self.chosenTeam
+            
         }
     }
 

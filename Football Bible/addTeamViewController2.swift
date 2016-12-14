@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import FirebaseDatabase
 
 
 class addTeamViewController2: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -18,6 +19,8 @@ class addTeamViewController2: UIViewController, UITableViewDataSource, UITableVi
     var teamDicts = [String: Int]()
     var tempDict = [String: Int]()
     var selectedTeam = String()
+    var ref: FIRDatabaseReference!
+    var userID: String?
     
     // HTTP Header code adapted from: https://grokswift.com/custom-headers-alamofire4-swift3/
     public typealias HTTPHeaders = [String: String]
@@ -29,6 +32,7 @@ class addTeamViewController2: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = FIRDatabase.database().reference(withPath: "users")
         Alamofire.request("https://api.football-data.org/v1/competitions/\(self.leagueId)/teams", headers: headers)
             .responseJSON { (responseData) -> Void in
                 
@@ -72,6 +76,8 @@ class addTeamViewController2: UIViewController, UITableViewDataSource, UITableVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let VC = segue.destination as? ViewController {
-            VC.teamDicts = self.teamDicts        }
+            self.ref.child(self.userID!).setValue(["Teams": self.teamDicts])
+            VC.userID = self.userID!
+            }
     }
 }

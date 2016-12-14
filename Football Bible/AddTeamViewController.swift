@@ -32,6 +32,7 @@ class AddTeamViewController: UIViewController, UITableViewDataSource, UITableVie
     var leagues = [String]()
     var leagueDicts = [String: Int]()
     var leagueId = Int()
+    var userID: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         Alamofire.request("https://api.football-data.org/v1/competitions/?season=2016", headers: headers)
@@ -77,6 +78,7 @@ class AddTeamViewController: UIViewController, UITableViewDataSource, UITableVie
         if let aTVC2Segue = segue.destination as? addTeamViewController2 {
             aTVC2Segue.leagueId = self.leagueId
             aTVC2Segue.teamDicts = self.teamDicts
+            aTVC2Segue.userID = self.userID
         }
     }
 

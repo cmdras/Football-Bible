@@ -40,7 +40,7 @@ func getPlayers(json:JSON) -> [String: Int] {
     var players = [String: Int]()
     if json["players"].count > 0 {
         for index in 0..<json["players"].count {
-            players[json["players"][index]["name"].rawString()!] = Int(json["players"][index]["jerseyNumber"].rawString()!)!
+            players[json["players"][index]["name"].rawString()!] = Int(json["players"][index]["jerseyNumber"].rawString()!)
         }
     }
     return players
