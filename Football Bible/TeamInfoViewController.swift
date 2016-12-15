@@ -11,13 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 class TeamInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var teamName: UILabel!
-    @IBOutlet weak var matchup: UILabel!
-    @IBOutlet weak var matchDate: UILabel!
-    @IBOutlet weak var playerTableView: UITableView!
     
+    // MARK:  Variables and Constants
     var teamDict = [String: Int]()
-    
     var players = [String]()
     var numbers = [Int]()
     // HTTP Header code adapted from: https://grokswift.com/custom-headers-alamofire4-swift3/
@@ -26,7 +22,15 @@ class TeamInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         "X-Auth-Token": "46713f7c92534e12900421e14dabd324",
         "X-Response-Control": "minified"
     ]
-
+    
+    // MARK: Outlets
+    @IBOutlet weak var teamName: UILabel!
+    @IBOutlet weak var matchup: UILabel!
+    @IBOutlet weak var matchDate: UILabel!
+    @IBOutlet weak var playerTableView: UITableView!
+    @IBOutlet weak var noPlayerDataLabel: UILabel!
+    
+    // MARK: View Controller lifecycle function
     override func viewDidLoad() {
         super.viewDidLoad()
         self.teamName.text = teamDict.keys.first
@@ -41,30 +45,41 @@ class TeamInfoViewController: UIViewController, UITableViewDataSource, UITableVi
                         self.numbers.append(playerDict[name]!)
                     }
                     
+                    if self.players.count == 0 {
+                        self.playerTableView.isHidden = true
+                        self.noPlayerDataLabel.isHidden = false
+                    } else {
+                        self.playerTableView.isHidden = false
+                        self.noPlayerDataLabel.isHidden = true
+                    }
+                    
                     self.playerTableView.reloadData()
                     
                 }
         }
         
-        Alamofire.request("https://api.football-data.org/v1/teams/\(teamDict.values.first!)/fixtures?timeFrame=n7", headers: headers)
+        Alamofire.request("https://api.football-data.org/v1/teams/\(teamDict.values.first!)/fixtures?timeFrame=n30", headers: headers)
             .responseJSON { (responseData) -> Void in
                 
                 if((responseData.result.value) != nil) {
                     let json = JSON(responseData.result.value!)
                     let match = getMatch(json: json)
-                    self.matchup.text = "\(match.homeTeam) vs \(match.awayTeam)"
-                    self.matchDate.text = "\(match.dateTime)"
+                    if match.homeTeam != "" && match.awayTeam != "" {
+                        self.matchup.isHidden = false
+                        self.matchup.text = "\(match.homeTeam) vs \(match.awayTeam)"
+                        self.matchDate.text = "\(match.dateTime)"
+                    } else {
+                        self.matchup.isHidden = true
+                        self.matchDate.text = "No match data found"
+                    }
+                    
                     
                 }
         }
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+    // MARK: Table functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return players.count
     }

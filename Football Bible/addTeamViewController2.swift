@@ -13,7 +13,7 @@ import FirebaseDatabase
 
 
 class addTeamViewController2: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var teamsTable: UITableView!
+    // MARK: Variables
     var leagueId = Int()
     var leagueTeams = [String]()
     var teamDicts = [String: Int]()
@@ -21,15 +21,18 @@ class addTeamViewController2: UIViewController, UITableViewDataSource, UITableVi
     var selectedTeam = String()
     var ref: FIRDatabaseReference!
     var userID: String?
-    
     // HTTP Header code adapted from: https://grokswift.com/custom-headers-alamofire4-swift3/
     public typealias HTTPHeaders = [String: String]
     let headers: HTTPHeaders = [
         "X-Auth-Token": "46713f7c92534e12900421e14dabd324",
         "X-Response-Control": "minified"
     ]
+
+    // MARK: Outlets
+    @IBOutlet weak var teamsTable: UITableView!
     
     
+    // MARK: View Controller lifecycle function
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = FIRDatabase.database().reference(withPath: "users")
@@ -50,12 +53,7 @@ class addTeamViewController2: UIViewController, UITableViewDataSource, UITableVi
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
+    // MARK: Table Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return leagueTeams.count
     }
@@ -74,6 +72,7 @@ class addTeamViewController2: UIViewController, UITableViewDataSource, UITableVi
         performSegue(withIdentifier: "addTeam", sender: nil)
     }
     
+    // MARK: Segue Preparation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let VC = segue.destination as? ViewController {
             self.ref.child(self.userID!).setValue(["Teams": self.teamDicts])

@@ -21,8 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var chosenTeam = [String: Int]()
     var ref: FIRDatabaseReference!
     
-    // MARK: Lifecycle function
-    
+    // MARK: View Controller lifecycle function
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,7 +56,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = teamTable.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
             as! teamCell
         
-        cell.teamName.text = footballTeams[indexPath.row]
+        cell.teamName.text = footballTeams.sorted()[indexPath.row]
         return cell
         
     }

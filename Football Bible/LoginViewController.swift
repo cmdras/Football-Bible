@@ -12,12 +12,15 @@ import Firebase
 import FirebaseDatabase
 class LoginViewController: UIViewController {
     
+    // MARK: Variables
     var ref: FIRDatabaseReference!
     var userID: String?
     
+    // MARK: Outlets
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
 
+    // MARK: View Controller lifecycle function
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,10 +36,7 @@ class LoginViewController: UIViewController {
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
+    // MARK: Login Functions
     @IBAction func createAccountAction(_ sender: Any) {
         if self.emailText.text == "" || self.passwordText.text == "" {
             let alertController = UIAlertController(title: "Oops", message: "Please enter an email and password", preferredStyle: .alert)
@@ -83,6 +83,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: Segue Preparation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let navVC = segue.destination as? UINavigationController {
             if let loginVC = navVC.topViewController as? ViewController {
