@@ -10,13 +10,18 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: Outlets
     @IBOutlet weak var teamTable: UITableView!
     
+    // MARK: Variables
     var userID: String?
     var footballTeams = [String]()
     var teamDicts = [String: Int]()
     var chosenTeam = [String: Int]()
     var ref: FIRDatabaseReference!
+    
+    // MARK: Lifecycle function
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +29,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         chosenTeam = [:]
         ref = FIRDatabase.database().reference(withPath: "users")
         ref.child(userID!).observe(.value, with: { snapshot in
-            var newItems: [String: Int] = [:]
             let items = snapshot.value as? [String: AnyObject]
             if items!["Teams"] != nil {
+                self.footballTeams = []
                 self.teamDicts = items!["Teams"]! as! [String : Int]
                 for team in self.teamDicts.keys {
                     self.footballTeams.append(team)
@@ -36,19 +41,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         })
         self.navigationItem.hidesBackButton = true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    // MARK: Table functions
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
         try! FIRAuth.auth()!.signOut()
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    
+ 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return footballTeams.count
     }
@@ -68,6 +68,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "teamInfo", sender: nil)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            self.teamDicts[footballTeams[indexPath.row]] = nil
+            self.ref.child(self.userID!).setValue(["Teams": self.teamDicts])
+            self.teamTable.reloadData()
+        }
+    }
+    
+    // MARK: Segue preparation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let segueVC = segue.destination as? AddTeamViewController {
