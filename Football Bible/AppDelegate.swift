@@ -49,11 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // State Restoration adapted from https://www.raywenderlich.com/117471/state-restoration-tutorial
     
-    func application(application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
+    func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
         return true
     }
     
-    func application(application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
+    func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
         return true
     }
 
