@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: Variables
     var userID: String?
     var footballTeams = [String]()
+    var sortedFootballTeams = [String]()
     var teamDicts = [String: Int]()
     var chosenTeam = [String: Int]()
     var ref: FIRDatabaseReference!
@@ -34,8 +35,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.teamDicts = items!["Teams"]! as! [String : Int]
                 for team in self.teamDicts.keys {
                     self.footballTeams.append(team)
-                    self.teamTable.reloadData()
                 }
+                self.sortedFootballTeams = self.footballTeams.sorted()
+                self.teamTable.reloadData()
             }
         })
         self.navigationItem.hidesBackButton = true
@@ -56,25 +58,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = teamTable.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
             as! teamCell
         
-        cell.teamName.text = footballTeams.sorted()[indexPath.row]
+        cell.teamName.text = sortedFootballTeams[indexPath.row]
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.chosenTeam = [:]
-        self.chosenTeam[footballTeams[indexPath.row]] = self.teamDicts[footballTeams[indexPath.row]]
+        self.chosenTeam[sortedFootballTeams[indexPath.row]] = self.teamDicts[sortedFootballTeams[indexPath.row]]
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "teamInfo", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            self.teamDicts[footballTeams[indexPath.row]] = nil
+            self.teamDicts[sortedFootballTeams[indexPath.row]] = nil
             self.ref.child(self.userID!).setValue(["Teams": self.teamDicts])
             self.teamTable.reloadData()
         }
     }
+
     
     // MARK: Segue preparation
     
@@ -86,7 +89,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         else if let segueVC = segue.destination as? TeamInfoViewController {
             segueVC.teamDict = self.chosenTeam
-            
         }
     }
 
